@@ -17,6 +17,7 @@ class FetchDataFromApiCommand extends Command
         $domains = config('dashboard.tiles.plausible.domains');
         if (empty($domains)) {
             $this->error('No domains configured in config/dashboard.php');
+
             return;
         }
         foreach ($domains as $domain) {

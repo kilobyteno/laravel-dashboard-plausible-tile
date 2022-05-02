@@ -5,7 +5,6 @@ namespace Kilobyteno\PlausibleTile\Tests;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Kilobyteno\PlausibleTile\PlausibleTileServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\SkeletonServiceProvider;
 
 class TestCase extends Orchestra
 {

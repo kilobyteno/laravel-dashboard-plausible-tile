@@ -11,7 +11,7 @@ class PlausibleTileServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                FetchDataFromApiCommand::class,
+                FetchDataFromPlausibleCommand::class,
             ]);
         }
 

@@ -37,6 +37,11 @@ Then add this to `config/dashboard.php` under the `tile` key:
 ],
 ```
 
+Under "schedule" in `kernel.php` add:
+```php
+$schedule->command(FetchDataFromPlausibleCommand::class)->hourly();
+```
+
 ## Usage
 
 In your dashboard view you use the `livewire:plausible-tile` component.

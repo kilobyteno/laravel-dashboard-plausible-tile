@@ -5,7 +5,7 @@ namespace Kilobyteno\PlausibleTile;
 use Illuminate\Console\Command;
 use Kilobyteno\LaravelPlausible\Plausible;
 
-class FetchDataFromApiCommand extends Command
+class FetchDataFromPlausibleCommand extends Command
 {
     protected $signature = 'dashboard:fetch-plausible-data';
 

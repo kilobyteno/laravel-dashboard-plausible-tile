@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MyTile\Tests;
+namespace Kilobyteno\PlausibleTile\Tests;
 
 use PHPUnit\Framework\TestCase;
 

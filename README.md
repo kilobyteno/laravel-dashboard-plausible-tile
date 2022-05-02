@@ -1,76 +1,63 @@
+# laravel-dashboard-plausible-tile
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kilobyteno/laravel-dashboard-plausible-tile.svg?style=flat-square)](https://packagist.org/packages/kilobyteno/laravel-dashboard-plausible-tile)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/kilobyteno/laravel-dashboard-plausible-tile/run-tests?label=tests)](https://github.com/kilobyteno/laravel-dashboard-plausible-tile/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/kilobyteno/laravel-dashboard-plausible-tile.svg?style=flat-square)](https://packagist.org/packages/kilobyteno/laravel-dashboard-plausible-tile)
 
-# :package_description
+A simple tile for showing Plausible analytics within for your dashboard.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/run-tests?label=tests)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/Check%20&%20fix%20styling?label=code%20style)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-This repo can be used to scaffold a Laravel package. Follow these steps to get started:
+This tile can be used on [the Laravel Dashboard](https://docs.spatie.be/laravel-dashboard).
 
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+![image](https://user-images.githubusercontent.com/9788214/166307483-4595a55a-4c78-4e80-9519-ed8395499bc2.png)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
+composer require kilobyteno/laravel-dashboard-plausible-tile
 ```
 
-You can publish and run the migrations with:
+Publish config for [laravel-plausible](https://github.com/kilobyteno/laravel-plausible):
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
-php artisan migrate
+php artisan vendor:publish --tag="plausible-config"
 ```
 
-You can publish the config file with:
+Open `config/plausible.php` and add your Plausible API Key.
 
-```bash
-php artisan vendor:publish --tag=":package_slug-config"
-```
-
-This is the contents of the published config file:
-
+Then add this to `config/dashboard.php` under the `tile` key:
 ```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag=":package_slug-views"
+'plausible' => [
+    'refresh_interval_in_seconds' => 60,
+    'domains' => [
+        'kilobyte.no',
+        'example.com',
+    ],
+],
 ```
 
 ## Usage
 
-```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+In your dashboard view you use the `livewire:plausible-tile` component.
+
+```html
+<x-dashboard>
+    <livewire:plausible-tile position="a1:a8" />
+</x-dashboard>
+```
+
+## Customizing the view
+
+If you want to customize the view used to render this tile, run this command:
+
+```bash
+php artisan vendor:publish --provider="Kilobyteno\PlausibleTile\PlausibleTileServiceProvider" --tag="dashboard-plausible-tile-views"
 ```
 
 ## Testing
 
-```bash
+``` bash
 composer test
 ```
 
@@ -80,15 +67,15 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## Security Vulnerabilities
+## Security
 
 Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Kilobyte AS](https://github.com/kilobyteno)
 - [All Contributors](../../contributors)
 
 ## License

@@ -1,6 +1,6 @@
 {
     "name": "kilobyteno/laravel-dashboard-plausible-tile",
-    "description": ":package_description",
+    "description": "A simple tile for showing Plausible analytics within for your dashboard.",
     "keywords": [
         "kilobyteno",
         "laravel-dashboard-plausible-tile",
@@ -23,7 +23,8 @@
         "php": "^8.0|^8.1",
         "kilobyteno/laravel-plausible": "^0.0.2",
         "spatie/laravel-package-tools": "^1.9.2",
-        "spatie/laravel-dashboard": "^2.0"
+        "spatie/laravel-dashboard": "^2.0",
+        "livewire/livewire": "^2.0"
     },
     "require-dev": {
         "nunomaduro/collision": "^6.0",

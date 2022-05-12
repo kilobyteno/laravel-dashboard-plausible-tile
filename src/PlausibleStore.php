@@ -27,7 +27,7 @@ class PlausibleStore
 
     public function getData(string $domain): array
     {
-        return $this->tile->getData('data')[$domain] ?? [];
+        return $this->tile->getData('data')[Str::replace('.', '_', $domain)] ?? [];
     }
 
     public function getAll(): array

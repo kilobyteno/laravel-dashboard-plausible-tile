@@ -26,6 +26,7 @@ class PlausibleStore
         $old_data = $this->tile->getData('data');
         Arr::forget($old_data, $domain_key);
         $new_data = Arr::add($old_data, $domain_key, $data);
+
         return $this->tile->putData("data", $new_data);
     }
 

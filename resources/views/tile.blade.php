@@ -3,10 +3,12 @@
         <div class="text-xl leading-none mt-1 mb-2">
             Plausible
         </div>
-        <div wire:poll.{{ $refreshIntervalInSeconds }}s class="grid  grid-flow-row auto-rows-max">
+        <div wire:poll.{{ $refreshIntervalInSeconds }}s class="grid grid-flow-row auto-rows-max">
             @foreach($data as $key => $value)
-                <div class="text-lg inline-block align-bottom ">
+                <div class="text-lg inline-block align-bottom">
                     {{ \Illuminate\Support\Str::replace('_', '.', $key) }}
+                    <svg class="inline w-1 ml-2 mr-0.5 {{ ($value['realtime_visitors'] > 0) ? 'text-green-500' : 'text-gray-300' }} fill-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="8"></circle></svg>
+                    <span class="text-xs text-gray-300 dark:text-gray-700">{{ $value['realtime_visitors'] }} {{ trans_choice('{1} current visitor|[*]current visitors', $value['realtime_visitors']) }}</span>
                 </div>
                 <div class="grid grid-rows-2 grid-cols-2 gap-4 text-2xl leading-none">
                     <div>

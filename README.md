@@ -39,7 +39,7 @@ Then add this to `config/dashboard.php` under the `tile` key:
 
 Under "schedule" in `kernel.php` add:
 ```php
-$schedule->command(FetchDataFromPlausibleCommand::class)->hourly();
+$schedule->command(FetchDataFromPlausibleCommand::class)->everyMinute();
 ```
 
 ## Usage

@@ -32,6 +32,6 @@ class PlausibleStore
 
     public function getAll(): array
     {
-        return$this->tile->getData('data') ?? [];
+        return $this->tile->getData('data') ?? [];
     }
 }

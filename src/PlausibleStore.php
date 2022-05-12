@@ -22,7 +22,11 @@ class PlausibleStore
 
     public function setData(string $domain, array $data): Tile
     {
-        return $this->tile->putData("data", Arr::add($this->tile->getData('data'), Str::replace('.', '_', $domain), $data));
+        $domain_key = Str::replace('.', '_', $domain);
+        $old_data = $this->tile->getData('data');
+        Arr::forget($old_data, $domain_key);
+        $new_data = Arr::add($old_data, $domain_key, $data);
+        return $this->tile->putData("data", $new_data);
     }
 
     public function getData(string $domain): array

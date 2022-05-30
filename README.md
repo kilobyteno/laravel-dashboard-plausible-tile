@@ -8,7 +8,7 @@ A simple tile for showing Plausible analytics within for your dashboard.
 
 This tile can be used on [the Laravel Dashboard](https://docs.spatie.be/laravel-dashboard).
 
-![image](https://user-images.githubusercontent.com/9788214/166307483-4595a55a-4c78-4e80-9519-ed8395499bc2.png)
+![Screenshot 2022-05-30 at 21-27-06 Dashboard](https://user-images.githubusercontent.com/9788214/171050657-949908e9-ae7b-410c-910a-da5f7121be33.png)
 
 ## Installation
 

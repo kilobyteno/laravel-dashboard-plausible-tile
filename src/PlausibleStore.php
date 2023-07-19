@@ -20,6 +20,11 @@ class PlausibleStore
         $this->tile = Tile::firstOrCreateForName("plausible");
     }
 
+    /**
+     * @param string $domain
+     * @param array $data
+     * @return Tile
+     */
     public function setData(string $domain, array $data): Tile
     {
         $domain_key = Str::replace('.', '_', $domain);
@@ -30,11 +35,18 @@ class PlausibleStore
         return $this->tile->putData("data", $new_data);
     }
 
+    /**
+     * @param string $domain
+     * @return array
+     */
     public function getData(string $domain): array
     {
         return $this->tile->getData('data')[Str::replace('.', '_', $domain)] ?? [];
     }
 
+    /**
+     * @return array
+     */
     public function getAll(): array
     {
         return $this->tile->getData('data') ?? [];

@@ -2,18 +2,28 @@
 
 namespace Kilobyteno\PlausibleTile;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class PlausibleTileComponent extends Component
 {
-    public $position;
+    public string $position;
 
-    public function mount(string $position)
+    /**
+     * @param string $position
+     * @return void
+     */
+    public function mount(string $position): void
     {
         $this->position = $position;
     }
 
-    public function render()
+    /**
+     * @return Application|Factory|View
+     */
+    public function render(): View|Factory|Application
     {
         return view('dashboard-plausible-tile::tile', [
             'data' => PlausibleStore::make()->getAll(),

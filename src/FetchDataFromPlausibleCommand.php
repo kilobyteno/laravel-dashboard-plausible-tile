@@ -12,7 +12,11 @@ class FetchDataFromPlausibleCommand extends Command
 
     protected $description = 'Fetch Plausible data from the API';
 
-    public function handle(Plausible $plausible)
+    /**
+     * @param Plausible $plausible
+     * @return void
+     */
+    public function handle(Plausible $plausible): void
     {
         $this->info('Fetching data from Plausible...');
         $domains = config('dashboard.tiles.plausible.domains');

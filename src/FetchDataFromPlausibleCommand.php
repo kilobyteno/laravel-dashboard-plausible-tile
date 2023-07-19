@@ -28,6 +28,7 @@ class FetchDataFromPlausibleCommand extends Command
         }
         foreach ($domains as $domain) {
             $this->info("Fetching data for {$domain}");
+
             try {
                 $data = $plausible->get($domain, '30d', Plausible::getAllowedMetrics());
                 $data = Arr::add($data, 'realtime_visitors', $plausible->getRealtimeVisitors($domain));

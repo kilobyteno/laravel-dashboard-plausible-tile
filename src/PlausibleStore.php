@@ -29,7 +29,9 @@ class PlausibleStore
     {
         $domain_key = Str::replace('.', '_', $domain);
         $old_data = $this->tile->getData('data');
-        Arr::forget($old_data, $domain_key);
+        if(Arr::has($old_data, $domain_key)) {
+            Arr::forget($old_data, $domain_key);
+        }
         $new_data = Arr::add($old_data, $domain_key, $data);
 
         return $this->tile->putData("data", $new_data);

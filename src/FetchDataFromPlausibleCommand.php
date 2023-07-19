@@ -4,6 +4,7 @@ namespace Kilobyteno\PlausibleTile;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
+use Kilobyteno\LaravelPlausible\Exceptions\PlausibleAPIException;
 use Kilobyteno\LaravelPlausible\Plausible;
 
 class FetchDataFromPlausibleCommand extends Command
@@ -27,8 +28,14 @@ class FetchDataFromPlausibleCommand extends Command
         }
         foreach ($domains as $domain) {
             $this->info("Fetching data for {$domain}");
-            $data = $plausible->get($domain, '30d', Plausible::getAllowedMetrics());
-            $data = Arr::add($data, 'realtime_visitors', $plausible->getRealtimeVisitors($domain));
+            try {
+                $data = $plausible->get($domain, '30d', Plausible::getAllowedMetrics());
+                $data = Arr::add($data, 'realtime_visitors', $plausible->getRealtimeVisitors($domain));
+            } catch (PlausibleAPIException $e) {
+                $this->error($e->getMessage());
+
+                return;
+            }
             PlausibleStore::make()->setData($domain, $data);
         }
         $this->info('All done!');

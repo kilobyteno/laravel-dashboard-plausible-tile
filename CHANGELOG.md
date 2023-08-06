@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-dashboard-plausible-tile` will be documented in this file
 
+## 1.1.3 - 2023-08-06
+
+### What's Changed
+
+- Refactored and updated the styling of the tile
+
+**Full Changelog**: https://github.com/kilobyteno/laravel-dashboard-plausible-tile/compare/1.1.1...1.1.3
+
 ## 1.1.1 - 2023-07-19
 
 ### What's Changed
